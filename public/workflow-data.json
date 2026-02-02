@@ -12,7 +12,7 @@
         "color": "#ff9900"
       },
       "measured": {
-        "width": 172,
+        "width": 175,
         "height": 40
       },
       "selected": false,
@@ -32,7 +32,7 @@
         "color": "#ff5555"
       },
       "measured": {
-        "width": 172,
+        "width": 175,
         "height": 60
       },
       "selected": false,
@@ -53,10 +53,10 @@
         "color": "#ff5555"
       },
       "measured": {
-        "width": 172,
+        "width": 175,
         "height": 60
       },
-      "selected": true,
+      "selected": false,
       "dragging": false,
       "targetPosition": "left",
       "sourcePosition": "right"
@@ -65,8 +65,8 @@
       "id": "pre-storyboard",
       "type": "custom",
       "position": {
-        "x": 450,
-        "y": 295
+        "x": 377.6001235583635,
+        "y": 225.18583343127915
       },
       "data": {
         "label": "分镜 (Storyboard)",
@@ -77,14 +77,16 @@
         "height": 40
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false,
+      "dragging": false
     },
     {
       "id": "pre-previs",
       "type": "custom",
       "position": {
-        "x": 675,
-        "y": 225
+        "x": 579.9535783755302,
+        "y": 249.50415557505863
       },
       "data": {
         "label": "预演 (Previs)",
@@ -96,14 +98,16 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": true,
+      "dragging": false
     },
     {
       "id": "asset-model",
       "type": "custom",
       "position": {
-        "x": 450,
-        "y": 110
+        "x": 409.92149696980846,
+        "y": 95.77859569896427
       },
       "data": {
         "label": "模型 (Modeling)",
@@ -115,7 +119,9 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false,
+      "dragging": false
     },
     {
       "id": "asset-uv",
@@ -133,7 +139,8 @@
         "height": 40
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "asset-texturing",
@@ -152,7 +159,8 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "asset-lookdev",
@@ -170,14 +178,15 @@
         "height": 40
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "asset-rigging",
       "type": "custom",
       "position": {
-        "x": 675,
-        "y": 335
+        "x": 601.4875332748242,
+        "y": 398.1167643599995
       },
       "data": {
         "label": "绑定 (Rigging)",
@@ -189,7 +198,9 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false,
+      "dragging": false
     },
     {
       "id": "asset-groom",
@@ -215,8 +226,8 @@
       "id": "prod-layout",
       "type": "custom",
       "position": {
-        "x": 900,
-        "y": 290
+        "x": 914.2214043010357,
+        "y": 209.1965664713879
       },
       "data": {
         "label": "布局 (Layout)",
@@ -228,14 +239,16 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false,
+      "dragging": false
     },
     {
       "id": "prod-anim",
       "type": "custom",
       "position": {
-        "x": 1125,
-        "y": 257.5
+        "x": 1130.81784721406,
+        "y": 278.1856789833247
       },
       "data": {
         "label": "动画 (Animation)",
@@ -247,7 +260,9 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false,
+      "dragging": false
     },
     {
       "id": "prod-cfx",
@@ -266,14 +281,15 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "prod-vfx",
       "type": "custom",
       "position": {
-        "x": 1350,
-        "y": 285
+        "x": 1364.8678317692645,
+        "y": 360.6320137827809
       },
       "data": {
         "label": "环境特效 (VFX)",
@@ -285,7 +301,9 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false,
+      "dragging": false
     },
     {
       "id": "prod-light",
@@ -304,7 +322,8 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "prod-render",
@@ -323,7 +342,8 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "post-comp",
@@ -382,7 +402,8 @@
         "height": 60
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "post-sound",
@@ -400,7 +421,8 @@
         "height": 40
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     },
     {
       "id": "final",
@@ -418,7 +440,8 @@
         "height": 40
       },
       "targetPosition": "left",
-      "sourcePosition": "right"
+      "sourcePosition": "right",
+      "selected": false
     }
   ],
   "edges": [
@@ -512,7 +535,8 @@
     {
       "id": "e-render1",
       "source": "prod-anim",
-      "target": "prod-light"
+      "target": "prod-light",
+      "selected": false
     },
     {
       "id": "e-render2",
