@@ -4,8 +4,8 @@
       "id": "root",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": -100
+        "x": 0,
+        "y": 20
       },
       "data": {
         "label": "CG影视全流程",
@@ -14,14 +14,17 @@
       "measured": {
         "width": 175,
         "height": 40
-      }
+      },
+      "selected": false,
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "pre-script",
       "type": "custom",
       "position": {
-        "x": -116.00000034232252,
-        "y": 72.99999992032149
+        "x": 0,
+        "y": 110
       },
       "data": {
         "label": "剧本 (Script)",
@@ -32,15 +35,17 @@
         "width": 175,
         "height": 60
       },
-      "selected": false,
-      "dragging": false
+      "selected": true,
+      "dragging": false,
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "pre-concept",
       "type": "custom",
       "position": {
-        "x": -92.00000100926121,
-        "y": 224.000000365931
+        "x": 225,
+        "y": 110
       },
       "data": {
         "label": "概念设计 (Concept)",
@@ -48,18 +53,20 @@
         "color": "#ff5555"
       },
       "measured": {
-        "width": 172,
+        "width": 175,
         "height": 60
       },
       "selected": false,
-      "dragging": false
+      "dragging": false,
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "pre-storyboard",
       "type": "custom",
       "position": {
-        "x": 500,
-        "y": 100
+        "x": 450,
+        "y": 295
       },
       "data": {
         "label": "分镜 (Storyboard)",
@@ -68,14 +75,16 @@
       "measured": {
         "width": 175,
         "height": 40
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "pre-previs",
       "type": "custom",
       "position": {
-        "x": 750,
-        "y": 100
+        "x": 675,
+        "y": 225
       },
       "data": {
         "label": "预演 (Previs)",
@@ -85,14 +94,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "asset-model",
       "type": "custom",
       "position": {
-        "x": 100,
-        "y": 300
+        "x": 450,
+        "y": 110
       },
       "data": {
         "label": "模型 (Modeling)",
@@ -102,14 +113,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "asset-uv",
       "type": "custom",
       "position": {
-        "x": 300,
-        "y": 300
+        "x": 900,
+        "y": 10
       },
       "data": {
         "label": "UV拆分",
@@ -118,14 +131,16 @@
       "measured": {
         "width": 175,
         "height": 40
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "asset-texturing",
       "type": "custom",
       "position": {
-        "x": 500,
-        "y": 300
+        "x": 1125,
+        "y": 0
       },
       "data": {
         "label": "材质/贴图 (Texturing)",
@@ -135,14 +150,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "asset-lookdev",
       "type": "custom",
       "position": {
-        "x": 700,
-        "y": 300
+        "x": 1350,
+        "y": 10
       },
       "data": {
         "label": "视觉开发 (LookDev)",
@@ -151,14 +168,16 @@
       "measured": {
         "width": 175,
         "height": 40
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "asset-rigging",
       "type": "custom",
       "position": {
-        "x": 300,
-        "y": 400
+        "x": 675,
+        "y": 335
       },
       "data": {
         "label": "绑定 (Rigging)",
@@ -168,14 +187,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "asset-groom",
       "type": "custom",
       "position": {
-        "x": 300,
-        "y": 500
+        "x": 1125,
+        "y": 115
       },
       "data": {
         "label": "毛发 (Grooming)",
@@ -186,14 +207,16 @@
         "width": 175,
         "height": 60
       },
-      "selected": false
+      "selected": false,
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "prod-layout",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": 600
+        "x": 900,
+        "y": 290
       },
       "data": {
         "label": "布局 (Layout)",
@@ -203,14 +226,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "prod-anim",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": 700
+        "x": 1125,
+        "y": 257.5
       },
       "data": {
         "label": "动画 (Animation)",
@@ -220,14 +245,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "prod-cfx",
       "type": "custom",
       "position": {
-        "x": 850,
-        "y": 700
+        "x": 1350,
+        "y": 175
       },
       "data": {
         "label": "角色特效 (CFX)",
@@ -237,14 +264,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "prod-vfx",
       "type": "custom",
       "position": {
-        "x": 850,
-        "y": 800
+        "x": 1350,
+        "y": 285
       },
       "data": {
         "label": "环境特效 (VFX)",
@@ -254,14 +283,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "prod-light",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": 900
+        "x": 1575,
+        "y": 230
       },
       "data": {
         "label": "灯光 (Lighting)",
@@ -271,14 +302,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "prod-render",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": 1000
+        "x": 1800,
+        "y": 230
       },
       "data": {
         "label": "渲染 (Rendering)",
@@ -288,14 +321,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "post-comp",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": 1200
+        "x": 2025,
+        "y": 230
       },
       "data": {
         "label": "合成 (Compositing)",
@@ -306,14 +341,16 @@
         "width": 175,
         "height": 60
       },
-      "selected": false
+      "selected": false,
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "post-edit",
       "type": "custom",
       "position": {
-        "x": 902.0366691933298,
-        "y": 1241.629335354664
+        "x": 2250,
+        "y": 340
       },
       "data": {
         "label": "剪辑 (Editing)",
@@ -324,14 +361,16 @@
         "height": 40
       },
       "selected": false,
-      "dragging": false
+      "dragging": false,
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "post-grade",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": 1300
+        "x": 2250,
+        "y": 210
       },
       "data": {
         "label": "调色 (Color Grade)",
@@ -341,14 +380,16 @@
       "measured": {
         "width": 175,
         "height": 60
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "post-sound",
       "type": "custom",
       "position": {
-        "x": 350,
-        "y": 1200
+        "x": 2025,
+        "y": 340
       },
       "data": {
         "label": "音效/配乐 (Sound)",
@@ -357,14 +398,16 @@
       "measured": {
         "width": 175,
         "height": 40
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     },
     {
       "id": "final",
       "type": "custom",
       "position": {
-        "x": 600,
-        "y": 1450
+        "x": 2475,
+        "y": 340
       },
       "data": {
         "label": "最终成片 (Final)",
@@ -373,7 +416,9 @@
       "measured": {
         "width": 175,
         "height": 40
-      }
+      },
+      "targetPosition": "left",
+      "sourcePosition": "right"
     }
   ],
   "edges": [
