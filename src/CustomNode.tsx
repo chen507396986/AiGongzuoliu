@@ -16,17 +16,34 @@ export function CustomNode({ id, data, selected }: NodeProps<any>) {
   const [editValue, setEditValue] = useState(label);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const [isEditingSub, setIsEditingSub] = useState(false);
+  const [subEditValue, setSubEditValue] = useState(subLabel || '');
+  const subInputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     if (isEditing && inputRef.current) {
       inputRef.current.focus();
     }
   }, [isEditing]);
 
+  useEffect(() => {
+    if (isEditingSub && subInputRef.current) {
+      subInputRef.current.focus();
+    }
+  }, [isEditingSub]);
+
   const onSubmit = () => {
     setIsEditing(false);
     // Only update if value changed
     if (editValue !== label) {
         updateNodeData(id, { label: editValue });
+    }
+  };
+
+  const onSubSubmit = () => {
+    setIsEditingSub(false);
+    if (subEditValue !== subLabel) {
+        updateNodeData(id, { subLabel: subEditValue });
     }
   };
 
@@ -81,7 +98,8 @@ export function CustomNode({ id, data, selected }: NodeProps<any>) {
       
       <div 
         onDoubleClick={() => setIsEditing(true)}
-        style={{ fontWeight: 'bold', marginBottom: subLabel ? '5px' : '0', cursor: 'text', minHeight: '18px' }}
+        className="nodrag"
+        style={{ fontWeight: 'bold', marginBottom: subLabel ? '5px' : '0', cursor: 'text', minHeight: '18px', userSelect: 'text' }}
         title="双击修改名称"
       >
         {isEditing ? (
@@ -115,8 +133,44 @@ export function CustomNode({ id, data, selected }: NodeProps<any>) {
       </div>
       
       {subLabel && (
-        <div style={{ fontSize: '10px', opacity: 0.8 }}>
-            {subLabel}
+        <div 
+            className="nodrag" 
+            style={{ fontSize: '10px', opacity: 0.8, userSelect: 'text', cursor: 'text', minHeight: '14px' }}
+            onDoubleClick={(e) => {
+                e.stopPropagation();
+                setIsEditingSub(true);
+            }}
+            title="双击修改副标题"
+        >
+            {isEditingSub ? (
+                <input 
+                    ref={subInputRef}
+                    className="nodrag"
+                    value={subEditValue}
+                    onChange={(e) => setSubEditValue(e.target.value)}
+                    onBlur={onSubSubmit}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') onSubSubmit();
+                        if (e.key === 'Escape') {
+                            setSubEditValue(subLabel || '');
+                            setIsEditingSub(false);
+                        }
+                    }}
+                    style={{
+                        width: '100%',
+                        background: '#333',
+                        border: '1px solid #666',
+                        color: 'white',
+                        fontSize: '10px',
+                        padding: '1px 2px',
+                        outline: 'none',
+                        borderRadius: '2px'
+                    }}
+                    onClick={(e) => e.stopPropagation()} 
+                />
+            ) : (
+                subLabel
+            )}
         </div>
       )}
  

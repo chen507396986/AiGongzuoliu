@@ -13,13 +13,15 @@ import {
   type Node,
   MarkerType,
   Panel,
+  ControlButton,
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
 import { CustomNode } from './CustomNode';
 import { githubService, type GitHubUser } from './github';
 import { saveWorkflowToServer, getWorkflowsFromServer, getWorkflowFromServer, checkServerHealth } from './api';
-import { Github, UploadCloud, DownloadCloud, LogOut, Loader2, History, X, Trash2, KeyRound, ExternalLink, Server, Database, Share2 } from 'lucide-react';
+import { Github, UploadCloud, DownloadCloud, LogOut, Loader2, History, X, Trash2, KeyRound, ExternalLink, Server, Database, Share2, Layout, ArrowDown, ArrowRight, Copy } from 'lucide-react';
+import dagre from 'dagre';
 
 // --- Types ---
 interface ChangelogItem {
@@ -29,6 +31,16 @@ interface ChangelogItem {
 }
 
 const changelog: ChangelogItem[] = [
+    {
+        date: '2026-02-02',
+        version: '0.1.8',
+        content: [
+            '📄 新增节点复制功能 (Ctrl + D)',
+            '📝 支持双击修改节点副标题',
+            '🖱️ 支持节点文字选中复制',
+            '📐 新增一键自动布局功能 (垂直/水平)'
+        ]
+    },
     {
         date: '2026-02-02',
         version: '0.1.7',
@@ -223,6 +235,42 @@ const getSavedEdges = () => {
     const saved = localStorage.getItem(STORAGE_KEY_EDGES);
     return saved ? JSON.parse(saved) : initialEdges;
 };
+
+const dagreGraph = new dagre.graphlib.Graph();
+dagreGraph.setDefaultEdgeLabel(() => ({}));
+
+const nodeWidth = 200;
+const nodeHeight = 80;
+
+const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => {
+  const isHorizontal = direction === 'LR';
+  dagreGraph.setGraph({ rankdir: direction });
+
+  nodes.forEach((node) => {
+    dagreGraph.setNode(node.id, { width: node.measured?.width ?? nodeWidth, height: node.measured?.height ?? nodeHeight });
+  });
+
+  edges.forEach((edge) => {
+    dagreGraph.setEdge(edge.source, edge.target);
+  });
+
+  dagre.layout(dagreGraph);
+
+  const newNodes = nodes.map((node) => {
+    const nodeWithPosition = dagreGraph.node(node.id);
+    return {
+      ...node,
+      targetPosition: isHorizontal ? 'left' : 'top',
+      sourcePosition: isHorizontal ? 'right' : 'bottom',
+      position: {
+        x: nodeWithPosition.x - (node.measured?.width ?? nodeWidth) / 2,
+        y: nodeWithPosition.y - (node.measured?.height ?? nodeHeight) / 2,
+      },
+    };
+  });
+
+  return { nodes: newNodes, edges };
+};
  
 export default function Workflow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(getSavedNodes());
@@ -409,12 +457,22 @@ export default function Workflow() {
       try {
           const flow = { nodes, edges };
           const content = JSON.stringify(flow, null, 2);
+          
+          // Try saving to Repo first (persistence)
+          try {
+              await githubService.saveToRepo(content);
+              console.log('Saved to Repo');
+          } catch (e) {
+              console.warn('Failed to save to repo, falling back to Gist only', e);
+          }
+
+          // Always save to Gist (for sharing link generation)
           const id = await githubService.saveToGist(content);
           setCurrentGistId(id);
-          alert('✅ Successfully uploaded to GitHub Gist!');
+          alert('✅ 已保存到 GitHub (仓库 + Gist)！');
       } catch (error) {
           console.error(error);
-          alert('❌ Upload failed.');
+          alert('❌ 上传失败，请检查 Token 权限 (需勾选 repo 和 gist)。');
       } finally {
           setLoading(false);
       }
@@ -477,6 +535,55 @@ export default function Workflow() {
       setNodes((nds) => nds.filter((node) => !node.selected));
       setEdges((eds) => eds.filter((edge) => !edge.selected));
   }, [setNodes, setEdges]);
+
+  const onDuplicate = useCallback(() => {
+    const selectedNodes = nodes.filter((node) => node.selected);
+    if (selectedNodes.length === 0) return;
+
+    const newNodes = selectedNodes.map((node) => {
+      const id = `${new Date().getTime()}-${Math.random()}`;
+      return {
+        ...node,
+        id,
+        position: {
+          x: node.position.x + 50,
+          y: node.position.y + 50,
+        },
+        selected: true,
+        data: { ...node.data }, // Deep copy data to preserve label and subLabel
+      };
+    });
+
+    setNodes((nds) => 
+      nds.map(n => ({ ...n, selected: false })).concat(newNodes)
+    );
+  }, [nodes, setNodes]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+        // Ctrl+D or Command+D to duplicate
+        if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+            e.preventDefault();
+            onDuplicate();
+        }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onDuplicate]);
+
+  const onLayout = useCallback(
+    (direction: string) => {
+      const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+        nodes,
+        edges,
+        direction
+      );
+
+      setNodes([...layoutedNodes]);
+      setEdges([...layoutedEdges]);
+    },
+    [nodes, edges, setNodes, setEdges]
+  );
 
   const onReset = useCallback(() => {
       if (confirm('Are you sure you want to reset the workflow? This will delete all current changes.')) {
@@ -545,7 +652,14 @@ export default function Workflow() {
         colorMode="dark"
         fitView
       >
-        <Controls />
+        <Controls>
+            <ControlButton onClick={() => onLayout('TB')} title="垂直排列">
+                <ArrowDown size={16} />
+            </ControlButton>
+            <ControlButton onClick={() => onLayout('LR')} title="水平排列">
+                <ArrowRight size={16} />
+            </ControlButton>
+        </Controls>
         <MiniMap 
             nodeStrokeColor={(n) => {
                 if (n.type === 'custom') return n.data.color as string || '#eee';
@@ -559,6 +673,9 @@ export default function Workflow() {
         <Panel position="top-right" style={{ display: 'flex', gap: '10px' }}>
             <button onClick={onAddNode} style={{ padding: '8px 16px', cursor: 'pointer', borderRadius: '4px', border: 'none', background: '#4CAF50', color: 'white', fontWeight: 'bold' }}>
                 添加节点
+            </button>
+            <button onClick={onDuplicate} style={{ padding: '8px 16px', cursor: 'pointer', borderRadius: '4px', border: 'none', background: '#4CAF50', color: 'white', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                <Copy size={16} /> 复制节点
             </button>
             <button onClick={onDeleteSelected} style={{ padding: '8px 16px', cursor: 'pointer', borderRadius: '4px', border: 'none', background: '#e53935', color: 'white', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <Trash2 size={16} /> 删除选中
@@ -597,6 +714,8 @@ export default function Workflow() {
                     </button>
                 </div>
             </div>
+
+
 
             <div style={{ color: '#fff', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <Github size={16} /> 云端同步 (GitHub)

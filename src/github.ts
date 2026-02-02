@@ -44,6 +44,46 @@ export class GitHubService {
     };
   }
 
+  async saveToRepo(content: string): Promise<void> {
+    if (!this.octokit) throw new Error('Not logged in');
+
+    const REPO_OWNER = 'chen507396986';
+    const REPO_NAME = 'AiGongzuoliu';
+    const FILE_PATH = 'public/workflow-data.json'; // Save to public folder so it can be served/viewed
+    const MESSAGE = 'chore: update workflow data via app';
+
+    try {
+      // 1. Get current file SHA (if exists)
+      let sha: string | undefined;
+      try {
+        const { data } = await this.octokit.repos.getContent({
+          owner: REPO_OWNER,
+          repo: REPO_NAME,
+          path: FILE_PATH,
+        });
+        if ('sha' in data) {
+          sha = data.sha;
+        }
+      } catch (e) {
+        // File doesn't exist yet, which is fine
+      }
+
+      // 2. Create or Update file
+      await this.octokit.repos.createOrUpdateFileContents({
+        owner: REPO_OWNER,
+        repo: REPO_NAME,
+        path: FILE_PATH,
+        message: MESSAGE,
+        content: btoa(unescape(encodeURIComponent(content))), // Handle UTF-8 to Base64
+        sha: sha,
+      });
+
+    } catch (error) {
+      console.error('Failed to save to repo:', error);
+      throw new Error('Failed to save to repository');
+    }
+  }
+
   async saveToGist(content: string): Promise<string> {
     if (!this.octokit) throw new Error('Not logged in');
 
