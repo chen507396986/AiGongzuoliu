@@ -1,0 +1,517 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": -100
+      },
+      "data": {
+        "label": "CG影视全流程",
+        "color": "#ff9900"
+      },
+      "measured": {
+        "width": 175,
+        "height": 40
+      }
+    },
+    {
+      "id": "pre-script",
+      "type": "custom",
+      "position": {
+        "x": -116.00000034232252,
+        "y": 72.99999992032149
+      },
+      "data": {
+        "label": "剧本 (Script)",
+        "subLabel": "大纲/剧本",
+        "color": "#ff5555"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "pre-concept",
+      "type": "custom",
+      "position": {
+        "x": -92.00000100926121,
+        "y": 224.000000365931
+      },
+      "data": {
+        "label": "概念设计 (Concept)",
+        "subLabel": "角色/场景/道具",
+        "color": "#ff5555"
+      },
+      "measured": {
+        "width": 172,
+        "height": 60
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "pre-storyboard",
+      "type": "custom",
+      "position": {
+        "x": 500,
+        "y": 100
+      },
+      "data": {
+        "label": "分镜 (Storyboard)",
+        "color": "#ff5555"
+      },
+      "measured": {
+        "width": 175,
+        "height": 40
+      }
+    },
+    {
+      "id": "pre-previs",
+      "type": "custom",
+      "position": {
+        "x": 750,
+        "y": 100
+      },
+      "data": {
+        "label": "预演 (Previs)",
+        "subLabel": "动态分镜",
+        "color": "#ff5555"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "asset-model",
+      "type": "custom",
+      "position": {
+        "x": 100,
+        "y": 300
+      },
+      "data": {
+        "label": "模型 (Modeling)",
+        "subLabel": "高模/低模/拓扑",
+        "color": "#55aaff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "asset-uv",
+      "type": "custom",
+      "position": {
+        "x": 300,
+        "y": 300
+      },
+      "data": {
+        "label": "UV拆分",
+        "color": "#55aaff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 40
+      }
+    },
+    {
+      "id": "asset-texturing",
+      "type": "custom",
+      "position": {
+        "x": 500,
+        "y": 300
+      },
+      "data": {
+        "label": "材质/贴图 (Texturing)",
+        "subLabel": "PBR流程",
+        "color": "#55aaff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "asset-lookdev",
+      "type": "custom",
+      "position": {
+        "x": 700,
+        "y": 300
+      },
+      "data": {
+        "label": "视觉开发 (LookDev)",
+        "color": "#55aaff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 40
+      }
+    },
+    {
+      "id": "asset-rigging",
+      "type": "custom",
+      "position": {
+        "x": 300,
+        "y": 400
+      },
+      "data": {
+        "label": "绑定 (Rigging)",
+        "subLabel": "骨骼/权重/控制器",
+        "color": "#55aaff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "asset-groom",
+      "type": "custom",
+      "position": {
+        "x": 300,
+        "y": 500
+      },
+      "data": {
+        "label": "毛发 (Grooming)",
+        "subLabel": "XGen/Yeti",
+        "color": "#55aaff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      },
+      "selected": false
+    },
+    {
+      "id": "prod-layout",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": 600
+      },
+      "data": {
+        "label": "布局 (Layout)",
+        "subLabel": "场景组装/相机",
+        "color": "#5555ff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "prod-anim",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": 700
+      },
+      "data": {
+        "label": "动画 (Animation)",
+        "subLabel": "关键帧/动捕",
+        "color": "#5555ff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "prod-cfx",
+      "type": "custom",
+      "position": {
+        "x": 850,
+        "y": 700
+      },
+      "data": {
+        "label": "角色特效 (CFX)",
+        "subLabel": "布料/毛发解算",
+        "color": "#5555ff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "prod-vfx",
+      "type": "custom",
+      "position": {
+        "x": 850,
+        "y": 800
+      },
+      "data": {
+        "label": "环境特效 (VFX)",
+        "subLabel": "流体/破碎/烟火",
+        "color": "#5555ff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "prod-light",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": 900
+      },
+      "data": {
+        "label": "灯光 (Lighting)",
+        "subLabel": "打光/气氛",
+        "color": "#5555ff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "prod-render",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": 1000
+      },
+      "data": {
+        "label": "渲染 (Rendering)",
+        "subLabel": "分层渲染",
+        "color": "#5555ff"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "post-comp",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": 1200
+      },
+      "data": {
+        "label": "合成 (Compositing)",
+        "subLabel": "Nuke/AE",
+        "color": "#ffaa55"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      },
+      "selected": false
+    },
+    {
+      "id": "post-edit",
+      "type": "custom",
+      "position": {
+        "x": 902.0366691933298,
+        "y": 1241.629335354664
+      },
+      "data": {
+        "label": "剪辑 (Editing)",
+        "color": "#ffaa55"
+      },
+      "measured": {
+        "width": 175,
+        "height": 40
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "post-grade",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": 1300
+      },
+      "data": {
+        "label": "调色 (Color Grade)",
+        "subLabel": "Davinci",
+        "color": "#ffaa55"
+      },
+      "measured": {
+        "width": 175,
+        "height": 60
+      }
+    },
+    {
+      "id": "post-sound",
+      "type": "custom",
+      "position": {
+        "x": 350,
+        "y": 1200
+      },
+      "data": {
+        "label": "音效/配乐 (Sound)",
+        "color": "#ffaa55"
+      },
+      "measured": {
+        "width": 175,
+        "height": 40
+      }
+    },
+    {
+      "id": "final",
+      "type": "custom",
+      "position": {
+        "x": 600,
+        "y": 1450
+      },
+      "data": {
+        "label": "最终成片 (Final)",
+        "color": "#00cc00"
+      },
+      "measured": {
+        "width": 175,
+        "height": 40
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-pre1",
+      "source": "pre-script",
+      "target": "pre-concept"
+    },
+    {
+      "id": "e-pre2",
+      "source": "pre-script",
+      "target": "pre-storyboard"
+    },
+    {
+      "id": "e-pre3",
+      "source": "pre-concept",
+      "target": "asset-model"
+    },
+    {
+      "id": "e-pre4",
+      "source": "pre-storyboard",
+      "target": "pre-previs"
+    },
+    {
+      "id": "e-pre5",
+      "source": "pre-previs",
+      "target": "prod-layout"
+    },
+    {
+      "id": "e-asset1",
+      "source": "asset-model",
+      "target": "asset-uv"
+    },
+    {
+      "id": "e-asset2",
+      "source": "asset-uv",
+      "target": "asset-texturing"
+    },
+    {
+      "id": "e-asset3",
+      "source": "asset-texturing",
+      "target": "asset-lookdev"
+    },
+    {
+      "id": "e-asset4",
+      "source": "asset-model",
+      "target": "asset-rigging"
+    },
+    {
+      "id": "e-asset5",
+      "source": "asset-model",
+      "target": "asset-groom"
+    },
+    {
+      "id": "e-prod1",
+      "source": "asset-lookdev",
+      "target": "prod-light"
+    },
+    {
+      "id": "e-prod2",
+      "source": "asset-rigging",
+      "target": "prod-layout"
+    },
+    {
+      "id": "e-prod3",
+      "source": "asset-rigging",
+      "target": "prod-anim",
+      "selected": false
+    },
+    {
+      "id": "e-prod4",
+      "source": "asset-groom",
+      "target": "prod-cfx"
+    },
+    {
+      "id": "e-prod5",
+      "source": "prod-layout",
+      "target": "prod-anim"
+    },
+    {
+      "id": "e-prod6",
+      "source": "prod-anim",
+      "target": "prod-cfx"
+    },
+    {
+      "id": "e-prod7",
+      "source": "prod-anim",
+      "target": "prod-vfx"
+    },
+    {
+      "id": "e-render1",
+      "source": "prod-anim",
+      "target": "prod-light"
+    },
+    {
+      "id": "e-render2",
+      "source": "prod-cfx",
+      "target": "prod-light"
+    },
+    {
+      "id": "e-render3",
+      "source": "prod-vfx",
+      "target": "prod-light"
+    },
+    {
+      "id": "e-render4",
+      "source": "prod-light",
+      "target": "prod-render"
+    },
+    {
+      "id": "e-post1",
+      "source": "prod-render",
+      "target": "post-comp"
+    },
+    {
+      "id": "e-post2",
+      "source": "post-comp",
+      "target": "post-grade"
+    },
+    {
+      "id": "e-post3",
+      "source": "post-comp",
+      "target": "post-edit"
+    },
+    {
+      "id": "e-post4",
+      "source": "post-sound",
+      "target": "post-edit"
+    },
+    {
+      "id": "e-post5",
+      "source": "post-grade",
+      "target": "final"
+    },
+    {
+      "id": "e-post6",
+      "source": "post-edit",
+      "target": "final"
+    }
+  ]
+}
