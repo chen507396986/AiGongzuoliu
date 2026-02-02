@@ -1,5 +1,11 @@
 # 开发日志 (Changelog)
 
+## v0.1.8 (2026-02-02)
+- 📄 **Feature**: Duplicate node (Ctrl + D) / 新增节点复制功能
+- 📝 **Feature**: Edit node sub-label via double-click / 支持双击修改节点副标题
+- 🖱️ **UX**: Enable text selection in nodes / 支持节点文字选中复制
+- 📐 **Feature**: Auto Layout (Vertical/Horizontal) / 新增一键自动布局功能
+
 ## v0.1.7 (2026-02-02)
 - 🖥️ **Desktop**: Encapsulated as Electron desktop application / 封装为 Electron 桌面软件
 - 💾 **System**: Integrated local file database for standalone usage / 集成独立本地数据库
