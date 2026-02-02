@@ -263,7 +263,29 @@ export default function Workflow() {
                 if (currentItem) parsed.push(currentItem);
                 
                 if (parsed.length > 0) {
-                    setChangelogData(parsed);
+                    // Smart Merge: Combine local and remote, preferring local for same version or newer
+                    // Create a map of version -> item
+                    const mergedMap = new Map<string, ChangelogItem>();
+                    
+                    // Add local items first
+                    changelog.forEach(item => mergedMap.set(item.version, item));
+                    
+                    // Add remote items (overwrite if needed, or keep local if we want local to be source of truth for dev)
+                    // Actually, for "Developer Log", remote should be source of truth usually, 
+                    // BUT in this case user is the dev. So local is newer.
+                    // We will ONLY add remote items that are NOT in local.
+                    parsed.forEach(item => {
+                        if (!mergedMap.has(item.version)) {
+                            mergedMap.set(item.version, item);
+                        }
+                    });
+
+                    // Convert back to array and sort by version (descending)
+                    const sorted = Array.from(mergedMap.values()).sort((a, b) => {
+                        return b.version.localeCompare(a.version, undefined, { numeric: true });
+                    });
+
+                    setChangelogData(sorted);
                 }
             })
             .catch(err => console.warn('Failed to fetch remote changelog, using local fallback', err));
